@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+  html, body, h1, h2, h3, p, dev {
+    margin: 0;
+    padding: 0;
+  }
+  .node {
+    cursor: pointer;
+  }
+
+  .overlay{
+      background-color:#EEE;
+  }
+
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+
+  .node text {
+    font-size:10px;
+    font-family:sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show{
+      display:block;
+  }
+
+  .ghostCircle, .activeDrag .ghostCircle{
+       display: none;
+  }
+
+  .pathForm {
+    margin: 20px;
+  }
+
+  .pathInput {
+    width: 200px;
+  }
+
+</style>
+<body>
+    <form class="pathForm" action="/">
+      <label>Workspace Path:
+      <input class="pathInput"  type="text" name="path" value="{{currentPath}}"/></label>
+      <input type="submit"></input>
+    </form>
+    <div id="tree-container"></div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script>
+      try {
+        var jsonData = {{{jsonData}}};
+      } catch (e) {
+        console.log(e);
+      }
+    </script>
+    <script src="/javascripts/dndTree.js"></script>
+</body>
+</html>
